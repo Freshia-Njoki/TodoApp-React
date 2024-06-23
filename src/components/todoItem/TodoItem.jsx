@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import './todoItem.css'
 
 const TodoItem = ({ todo = {}, updateTodo, deleteTodo, toggleTodo }) => {
   const [isEditing, setIsEditing] = useState(false);
