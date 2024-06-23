@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { FaTrash } from 'react-icons/fa';
-import './todoItem.css'
+import './todoItem.css';
 
-const TodoItem = ({ todo = {}, updateTodo, deleteTodo, toggleTodo }) => {
+const TodoItem = ({ todo = {}, updateTodo, toggleTodo }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState(todo.text || '');
 
@@ -17,6 +16,12 @@ const TodoItem = ({ todo = {}, updateTodo, deleteTodo, toggleTodo }) => {
 
   return (
     <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+      <input 
+        type="checkbox" 
+        checked={todo.completed} 
+        onChange={() => toggleTodo(todo.id)} 
+        className="custom-radio"
+      />
       {isEditing ? (
         <input 
           type="text" 
@@ -29,7 +34,6 @@ const TodoItem = ({ todo = {}, updateTodo, deleteTodo, toggleTodo }) => {
         <span onClick={() => toggleTodo(todo.id)}>{todo.text}</span>
       )}
       <button onClick={() => setIsEditing(true)}>Edit</button>
-      <button onClick={() => deleteTodo(todo.id)}><FaTrash /></button>
     </li>
   );
 };

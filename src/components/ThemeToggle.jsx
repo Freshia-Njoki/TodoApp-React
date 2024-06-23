@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 const ThemeToggle = ({ darkMode, setDarkMode }) => {
